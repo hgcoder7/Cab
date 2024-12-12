@@ -11,7 +11,6 @@ const UserLogin = () => {
             email:email,
             password:password
         })
-        console.log(userData);
         setEmail('');
         setPassword('');
     }
@@ -19,7 +18,9 @@ const UserLogin = () => {
     <div className='p-7 h-screen flex flex-col justify-between '>
         <div className="">
         <img className='w-16 mb-10' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
-        <form >
+        <form onSubmit={(e)=>{
+            submitHandler(e)
+        }}>
             <h3 className='text-lg font-medium mb-2'>What's your email</h3>
             <input 
                 required 
