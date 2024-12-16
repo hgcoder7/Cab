@@ -2,14 +2,15 @@ import React from 'react'
 import {Routes,Route} from 'react-router-dom'
 import UserLogin from './pages/UserLogin'
 import UserSignup from './pages/UserSignup'
-import Home from './pages/home'
+import Home from './pages/Home'
 import CaptainLogin from './pages/CaptainLogin'
 import CaptainSignup from './pages/CaptainSignup'
 import Start from './pages/Start'
 import UserProtectWrapper from './pages/UserProtectWrapper'
 import UserLogout from './pages/UserLogout'
 import CaptainHome from './pages/CaptainHome'
-import CaptainProtectWrapper from './pages/UserProtectWrapper'
+import CaptainLogout from './pages/CaptainLogout'
+import CaptainProtectWrapper from './pages/CaptainProtectWrapper'
 import Riding from './pages/Riding'
 import CaptainRiding from './pages/CaptainRiding'
 
@@ -39,6 +40,11 @@ const App = () => {
             {<CaptainHome/>}
           </CaptainProtectWrapper>
         }/>
+        <Route path='/captain/logout' element={
+          <CaptainProtectWrapper>
+            <CaptainLogout />
+          </CaptainProtectWrapper>
+        } />
       </Routes>
     </div>
   )

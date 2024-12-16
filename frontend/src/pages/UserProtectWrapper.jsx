@@ -12,21 +12,21 @@ const UserProtectWrapper = ({children}) => {
     const navigate = useNavigate();
 
 
-    console.log(token)
+    
     useEffect(() => {
         if(!token){
             navigate('/login');
         }
-      }, [token])
+      
     
     
     axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`,{
       headers: {
           Authorization: `Bearer ${token}`
       }
-  }).then((response)=>{
+  }).then(response=>{
       if(response.status===200){
-          setUser(response.data.user);
+          setUser(response.data);
           setIsLoading(false)
       }
   }).catch(err=>{
@@ -34,6 +34,7 @@ const UserProtectWrapper = ({children}) => {
       localStorage.removeItem('token')
       navigate('/login')
   })
+}, [token])
 
 if(isLoading){
   return(
