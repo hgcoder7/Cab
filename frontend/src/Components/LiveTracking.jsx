@@ -7,8 +7,8 @@ const containerStyle = {
 };
 
 const center = {
-    lat: -3.745,
-    lng: -38.523
+    lat: 28.5820,
+    lng: 77.3683
 };
 
 const LiveTracking = () => {
@@ -49,7 +49,7 @@ const LiveTracking = () => {
 
         updatePosition(); // Initial position update
 
-        const intervalId = setInterval(updatePosition, 10000); // Update every 10 seconds
+        const intervalId = setInterval(updatePosition, 1000); // Update every 10 seconds
 
     }, []);
 
