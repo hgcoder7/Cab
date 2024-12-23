@@ -9,7 +9,7 @@ const cookieParser=require('cookie-parser');
 const captainRoutes=require('./routes/captain.routes');
 const mapsRoutes =require('./routes/maps.routes')
 const rideRoutes=require('./routes/ride.routes')
-const connectToDb=require('./db/db');
+const connectToDb=require('./db/db.js');
 connectToDb();
 
 app.use(cors());
