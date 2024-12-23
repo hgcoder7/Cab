@@ -14,8 +14,8 @@ connectToDb();
 
 app.use(cors({
     origin: 'https://cabify-zdbf.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST'],
+    allowedHeaders: 'Authorization',
     credentials: true,
 }));
 app.use(express.json());
