@@ -12,7 +12,10 @@ const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
 
-app.use(cors());
+app.use(cors({
+    origin: '*', // Your frontend URL
+    methods: ['GET', 'POST']
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
