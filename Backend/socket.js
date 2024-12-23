@@ -9,7 +9,8 @@ function initializeSocket(server) {
         cors: {
    origin: true,
     credentials: true,
-}
+},
+  allowEIO3: true,
     });
 
     io.on('connection', (socket) => {
