@@ -12,7 +12,11 @@ const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://cabify-zdbf.onrender.com', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Include cookies or authentication tokens
+}))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
