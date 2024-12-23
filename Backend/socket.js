@@ -6,11 +6,9 @@ let io;
 
 function initializeSocket(server) {
     io = socketIo(server, {
-        cors: {
-   origin: true,
-    credentials: true,
-},
-  allowEIO3: true,
+     cors: {
+      origin: '*',
+    }
     });
 
     io.on('connection', (socket) => {
