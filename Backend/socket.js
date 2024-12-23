@@ -8,8 +8,8 @@ function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
             origin: '*',
-            methods: [ 'GET', 'POST' ],
-            headers: 'Authorization'
+            methods: [ 'GET', 'POST' ]
+            // headers: 'Authorization'
         }
     });
 
