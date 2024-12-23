@@ -13,9 +13,12 @@ const connectToDb=require('./db/db');
 connectToDb();
 
 app.use(cors({
-    origin: '*', // Your frontend URL
-    methods: ['GET', 'POST']
+    origin: 'https://cabify-zdbf.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
