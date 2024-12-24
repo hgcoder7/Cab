@@ -13,6 +13,7 @@ const connectToDb=require('./db/db');
 connectToDb();
 
 // app.use(cors());
+app.options('https://cabify-zdbf.onrender.com', cors()) // include before other routes
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
