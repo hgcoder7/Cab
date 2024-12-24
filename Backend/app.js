@@ -22,6 +22,7 @@ var corsOptions = {
     })
   }
 }
+app.options('*', cors()) // include before other routes
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
