@@ -12,7 +12,9 @@ const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://cabify-zdbf.onrender.com'
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
@@ -22,7 +24,7 @@ app.get('/',(req,res)=>{
     res.send('hello')
 })
 app.options("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://example.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://cabify-zdbf.onrender.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.sendStatus(204);
