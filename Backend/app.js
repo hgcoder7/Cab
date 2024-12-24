@@ -30,7 +30,7 @@ app.use(cookieParser())
 app.get('/',(req,res)=>{
     res.send('hello')
 })
-app.use('/users',cors(corsOptions),userRoutes);
+app.use('/users',userRoutes);
 app.use('/captains',captainRoutes);
 app.use('/maps',mapsRoutes)
 app.use('/rides',rideRoutes,)
