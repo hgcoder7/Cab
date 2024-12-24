@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 app.use('/users',(req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://cabify-zdbf.onrender.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET");
-  res.setHeader("Access-Control-Allow-Headers", "Authorizations");
+  res.setHeader("Access-Control-Allow-Headers", "Authorization");
   next();
 },userRoutes);
 app.use('/captains',captainRoutes);
