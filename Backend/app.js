@@ -14,8 +14,13 @@ connectToDb();
 
 // app.use(cors());
 var corsOptions = {
-  origin: 'https://cabify-zdbf.onrender.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: function (origin, callback) {
+    // db.loadOrigins is an example call to load
+    // a list of origins from a backing database
+    db.loadOrigins(function (error, origins) {
+      callback(error, origins)
+    })
+  }
 }
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
