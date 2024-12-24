@@ -21,13 +21,13 @@ app.use(cookieParser())
 app.get('/',(req,res)=>{
     res.send('hello')
 })
-app.use((req, res, next) => {
+app.use()
+app.use('/users',(req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   next();
-})
-app.use('/users',userRoutes);
+},userRoutes);
 app.use('/captains',captainRoutes);
 app.use('/maps',mapsRoutes)
 app.use('/rides',rideRoutes,)
