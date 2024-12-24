@@ -17,11 +17,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
-app.get('/',(req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://example.com");
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
+  next();
+})
+app.get('/',(req,res)=>{
+    res.send('hello')
 })
 
 app.use('/users',userRoutes);
