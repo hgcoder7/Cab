@@ -5,15 +5,13 @@ const captainModel = require('./models/captain.model');
 let io;
 
 function initializeSocket(server) {
-    io = socketIo(server
-  //                 , {
-  //    cors: {
-  //   origin: "https://cabify-zdbf.onrender.com",
-  //   methods: ["GET", "POST"],
-  //         credentials: true,
-  // }
-  //   }
-                 );
+    io = socketIo(server, {
+     cors: {
+    origin: "https://cabify-zdbf.onrender.com",
+    methods: ["GET", "POST"],
+          credentials: true,
+  }
+    });
 
     io.on('connection', (socket) => {
         console.log(`Client connected: ${socket.id}`);
