@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
     res.send('hello')
 })
 app.use('/users',(req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://cabify-zdbf.onrender.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET");
   res.setHeader("Access-Control-Allow-Headers", "Authorizations");
   next();
