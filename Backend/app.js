@@ -12,18 +12,7 @@ const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
 
-// app.use(cors());
-app.options('https://cabify-zdbf.onrender.com', cors()) // include before other routes
-var corsOptionsDelegate = function (req, callback) {
-  var corsOptions;
-  if (allowlist.indexOf(req.header('Origin')) !== -1) {
-    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false } // disable CORS for this request
-  }
-  callback(null, corsOptions) // callback expects two parameters: error and options
-}
-// app.options('https://cabify-zdbf.onrender.com', cors()) // include before other routes
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
@@ -31,7 +20,7 @@ app.use(cookieParser())
 app.get('/',(req,res)=>{
     res.send('hello')
 })
-app.use('/users',cors(corsOptionsDelegate),userRoutes);
+app.use('/users',userRoutes);
 app.use('/captains',captainRoutes);
 app.use('/maps',mapsRoutes)
 app.use('/rides',rideRoutes,)
