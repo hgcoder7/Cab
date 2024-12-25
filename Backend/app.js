@@ -17,7 +17,7 @@ connectToDb();
     //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization");
+    res.header("Access-Control-Allow-Headers", "Origin, Accept, Content-Type, Authorization");
       next();
     });
 app.use(express.json());
