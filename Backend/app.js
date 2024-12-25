@@ -20,13 +20,6 @@ app.use(cookieParser())
 app.get('/',(req,res)=>{
     res.send('hello')
 })
-    app.use(function (req, res, next) {
-    //Enabling CORS
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, Accept, Content-Type, Authorization");
-      next();
-    });
 app.use('/users',userRoutes);
 app.use('/captains',captainRoutes);
 app.use('/maps',mapsRoutes)
