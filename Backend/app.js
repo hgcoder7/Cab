@@ -13,7 +13,8 @@ const connectToDb=require('./db/db');
 connectToDb();
 
 app.use(cors({
-    origin:"https://cabify-zdbf.onrender.com"
+    origin: '*',
+    methods: ["GET", "POST"],
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
