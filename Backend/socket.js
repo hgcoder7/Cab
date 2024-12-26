@@ -9,7 +9,7 @@ function initializeSocket(server) {
      cors: {
     origin: 'https://cabify-zdbf.onrender.com',
     methods: ["GET", "POST"],
-         credentials:"include"
+        
   }
     });
 
