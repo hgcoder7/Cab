@@ -14,12 +14,16 @@ connectToDb();
 app.options('*', cors()); // Responds to OPTIONS requests
 
 
+app.use((req, res, next) => {
+    console.log(`CORS Middleware Executed for: ${req.method} ${req.url}`);
+    next();
+});
 app.use(cors({
-    origin: 'https://cabify-zdbf.onrender.com', // Frontend domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true // Allow cookies and authorization headers
+    origin: 'https://cabify-zdbf.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
