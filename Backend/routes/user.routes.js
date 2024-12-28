@@ -20,6 +20,12 @@ router.post('/login', [
     next();
 }, userController.loginUser);
 
+router.options('/login', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://cabify-zdbf.onrender.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.sendStatus(204); // No content for preflight
+});
 
 // router.post('/login',[
 //     body('email').isEmail().withMessage('Invalid Email'),
