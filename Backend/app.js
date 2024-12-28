@@ -11,12 +11,8 @@ const mapsRoutes =require('./routes/maps.routes')
 const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
-app.options('*', cors({
-    origin: 'https://cabify-zdbf.onrender.com',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-}));
+app.options('*', cors()); // Responds to OPTIONS requests
+
 
 app.use(cors({
     origin: 'https://cabify-zdbf.onrender.com', // Frontend domain
