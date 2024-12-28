@@ -24,6 +24,7 @@ app.use(cors({
 //     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //     next();
 // });
+app.options('*', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
