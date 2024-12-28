@@ -7,7 +7,7 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
      cors: {
-    origin: 'https://cabify-zdbf.onrender.com',
+   Access-Control-Allow-Origin : 'https://cabify-zdbf.onrender.com',
     methods: ["GET", "POST"],
         
   }
