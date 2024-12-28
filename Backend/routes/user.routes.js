@@ -4,12 +4,22 @@ const {body}=require('express-validator')
 const userController= require('../controllers/user.controller')
 const authMiddleware=require('../middlewares/auth.middleware')
 
-router.post('/register',[
+// router.post('/register',[
+//     body('email').isEmail().withMessage('Invalid Email'),
+//     body('fullname.firstname').isLength({min:3}).withMessage('first name must be at least 3 character'),
+//     body('password').isLength({min:6}).withMessage('Password must be at least 6 character')
+// ],
+// userController.registerUser)
+router.post('/login', [
     body('email').isEmail().withMessage('Invalid Email'),
-    body('fullname.firstname').isLength({min:3}).withMessage('first name must be at least 3 character'),
-    body('password').isLength({min:6}).withMessage('Password must be at least 6 character')
-],
-userController.registerUser)
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
+], (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://cabify-zdbf.onrender.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+}, userController.loginUser);
+
 
 router.post('/login',[
     body('email').isEmail().withMessage('Invalid Email'),
