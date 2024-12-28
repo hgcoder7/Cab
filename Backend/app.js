@@ -18,13 +18,6 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true // Allow cookies and authorization headers
 }));
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'https://cabify-zdbf.onrender.com');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//     next();
-// });
-app.options('*', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
