@@ -5,8 +5,7 @@ import { io } from 'socket.io-client';
 export const SocketContext = createContext();
 
 const socket = io(`${import.meta.env.VITE_BASE_URL}`, {
-    withCredentials: true,
-    transports: ['websocket', 'polling']
+    withCredentials: true
 }); // Replace with your server URL
 
 const SocketProvider = ({ children }) => {
