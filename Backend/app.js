@@ -11,23 +11,17 @@ const mapsRoutes =require('./routes/maps.routes')
 const rideRoutes=require('./routes/ride.routes')
 const connectToDb=require('./db/db');
 connectToDb();
-app.options('*', cors()); // Responds to OPTIONS requests
 
-
-app.use((req, res, next) => {
-    console.log(`CORS Middleware Executed for: ${req.method} ${req.url}`);
-    next();
-});
-app.use(cors({
-    origin: 'https://cabify-zdbf.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
+const corsOptions={
+    origin: "https://cabify-zdbf.onrender.com",
+    credentials:true
+}
+app.use(cors(corsOptions));
 
 app.get('/',(req,res)=>{
     res.send('hello')
