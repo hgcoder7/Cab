@@ -10,22 +10,12 @@ router.post('/register',[
     body('password').isLength({min:6}).withMessage('Password must be at least 6 character')
 ],
 userController.registerUser)
-router.options('/login', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://cabify-zdbf.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(204); // No content for preflight
-});
+
 
 router.post('/login', [
     body('email').isEmail().withMessage('Invalid Email'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
-], (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://cabify-zdbf.onrender.com');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-}, userController.loginUser);
+], userController.loginUser);
 
 
 
